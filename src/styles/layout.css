@@ -1,0 +1,263 @@
+/* =========================
+   전체 레이아웃
+========================= */
+
+.layout-container {
+
+  display: flex;
+
+  width: 100%;
+
+  min-height: 100vh;
+
+  background-color: var(--bg-color);
+}
+
+/* =========================
+   사이드바
+========================= */
+
+.sidebar {
+
+  width: 240px;
+
+  min-width: 240px;
+
+  background: var(--sidebar-bg);
+
+  color: white;
+
+  display: flex;
+
+  flex-direction: column;
+}
+
+/* 로고 */
+.sidebar-logo {
+
+  height: 80px;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  font-size: 28px;
+
+  font-weight: bold;
+
+  border-bottom:
+    1px solid rgba(255,255,255,0.1);
+}
+
+/* 메뉴 */
+.sidebar-menu {
+
+  display: flex;
+
+  flex-direction: column;
+
+  padding: 20px;
+}
+
+/* 버튼 */
+.sidebar-menu button {
+
+  height: 50px;
+
+  margin-bottom: 12px;
+
+  border: none;
+
+  background: transparent;
+
+  color: white;
+
+  font-size: 16px;
+
+  cursor: pointer;
+
+  text-align: left;
+
+  padding-left: 14px;
+
+  border-radius: 10px;
+
+  transition: 0.2s;
+}
+
+/* hover */
+.sidebar-menu button:hover {
+
+  background: rgba(255,255,255,0.08);
+}
+
+/* =========================
+   오른쪽
+========================= */
+
+.layout-right {
+
+  flex: 1;
+
+  display: flex;
+
+  flex-direction: column;
+
+  width: 100%;
+}
+
+/* =========================
+   topbar
+========================= */
+
+.topbar {
+
+  height: 80px;
+
+  background: var(--topbar-bg);
+
+  border-bottom:
+    1px solid var(--border-color);
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: space-between;
+
+  padding: 0 30px;
+}
+
+/* 제목 */
+.topbar-title {
+
+  font-size: 24px;
+
+  font-weight: bold;
+
+  color: var(--text-color);
+}
+
+/* 유저 */
+.topbar-user {
+
+  font-size: 16px;
+
+  color: var(--sub-text);
+}
+
+/* =========================
+   컨텐츠
+========================= */
+
+.layout-content {
+
+  flex: 1;
+
+  width: 100%;
+
+  padding: 24px;
+
+  overflow-y: auto;
+
+  background: var(--bg-color);
+}
+
+/* =========================
+   사용자 영역
+========================= */
+
+.topbar-user-area {
+
+  position: relative;
+}
+
+/* 유저 버튼 */
+.topbar-user {
+
+  border: none;
+
+  background: transparent;
+
+  font-size: 16px;
+
+  font-weight: 600;
+
+  cursor: pointer;
+
+  color: #1f2a44;
+}
+
+/* 드롭다운 */
+.topbar-dropdown {
+
+  position: absolute;
+
+  top: 45px;
+
+  right: 0;
+
+  width: 180px;
+
+  background: white;
+
+  border-radius: 12px;
+
+  box-shadow:
+    0 4px 20px rgba(0,0,0,0.1);
+
+  overflow: hidden;
+
+  z-index: 999;
+}
+
+/* 버튼 */
+.topbar-dropdown button {
+
+  width: 100%;
+
+  height: 50px;
+
+  border: none;
+
+  background: white;
+
+  cursor: pointer;
+
+  text-align: left;
+
+  padding-left: 20px;
+
+  transition: 0.2s;
+
+  font-size: 15px;
+}
+
+/* hover */
+.topbar-dropdown button:hover {
+
+  background: #f5f7fb;
+}
+
+/* 다크모드 */
+body[data-theme="dark"]
+.topbar-dropdown {
+
+  background: #1f2937;
+}
+
+body[data-theme="dark"]
+.topbar-dropdown button {
+
+  background: #1f2937;
+
+  color: white;
+}
+
+body[data-theme="dark"]
+.topbar-dropdown button:hover {
+
+  background: #374151;
+}

@@ -1,0 +1,194 @@
+.fabric-book-page {
+
+  width: 100%;
+}
+
+/* 헤더 */
+.fabric-book-header {
+
+  margin-bottom: 24px;
+}
+
+.fabric-book-header h1 {
+
+  font-size: 32px;
+
+  color: #1f2a44;
+}
+
+/* 필터 */
+.fabric-book-filter {
+
+  display: flex;
+
+  gap: 14px;
+
+  background: white;
+
+  padding: 20px;
+
+  border-radius: 16px;
+
+  margin-bottom: 24px;
+}
+
+.fabric-book-filter select,
+.fabric-book-filter input {
+
+  height: 48px;
+
+  border: 1px solid #d9dce5;
+
+  border-radius: 10px;
+
+  padding: 0 14px;
+
+  font-size: 15px;
+}
+
+.fabric-book-filter select {
+
+  min-width: 180px;
+}
+
+.fabric-book-filter input {
+
+  flex: 1;
+}
+
+.fabric-book-filter button {
+
+  width: 120px;
+
+  border: none;
+
+  border-radius: 10px;
+
+  background: #1f2a44;
+
+  color: white;
+
+  cursor: pointer;
+}
+
+/* 테이블 */
+.fabric-book-table-wrapper {
+
+  background: white;
+
+  border-radius: 16px;
+
+  overflow-x: auto;
+}
+
+.fabric-book-table {
+
+  width: 100%;
+
+  border-collapse: collapse;
+}
+
+.fabric-book-table th {
+
+  background: #f7f8fc;
+
+  height: 60px;
+
+  font-size: 15px;
+
+  color: #1f2a44;
+}
+
+.fabric-book-table td {
+
+  text-align: center;
+
+  height: 100px;
+
+  border-top: 1px solid #eceef5;
+
+  font-size: 15px;
+}
+
+/* 이미지 */
+.book-image {
+
+  width: 54px;
+
+  height: 54px;
+
+  background: #3a3a3a;
+
+  border-radius: 8px;
+
+  margin: auto;
+}
+
+/* 상태 */
+.book-status-button {
+
+  width: 90px;
+
+  height: 42px;
+
+  border: none;
+
+  border-radius: 25px;
+
+  background: #1f2a44;
+
+  color: white;
+
+  cursor: pointer;
+}
+
+/* 관리 */
+.book-manage-button {
+
+  width: 80px;
+
+  height: 40px;
+
+  border: none;
+
+  border-radius: 10px;
+
+  background: #1f2a44;
+
+  color: white;
+
+  cursor: pointer;
+}
+
+/* 하단 */
+.fabric-book-bottom {
+
+  margin-top: 24px;
+
+  display: flex;
+
+  justify-content: flex-start;
+}
+
+/* 페이지네이션 */
+.pagination {
+
+  display: flex;
+
+  gap: 10px;
+}
+
+.pagination button {
+
+  width: 40px;
+
+  height: 40px;
+
+  border: 1px solid #ddd;
+
+  background: white;
+
+  border-radius: 8px;
+
+  cursor: pointer;
+}

@@ -1,0 +1,167 @@
+/* 거래처 관리 페이지 */
+
+
+.client-page {
+
+  width: 100%;
+}
+
+/* 헤더 */
+.client-header {
+
+  margin-bottom: 24px;
+}
+
+.client-header h1 {
+
+  font-size: 32px;
+
+  color: var(--text-color);
+}
+
+/* 검색 */
+.client-filter-box {
+
+  display: flex;
+
+  gap: 14px;
+
+  background: var(--card-bg);
+
+  padding: 20px;
+
+  border-radius: 16px;
+
+  margin-bottom: 24px;
+
+  border:
+    1px solid var(--border-color);
+}
+
+/* input */
+.client-filter-box select,
+.client-filter-box input {
+
+  height: 48px;
+
+  border:
+    1px solid var(--border-color);
+
+  border-radius: 10px;
+
+  padding: 0 14px;
+
+  font-size: 15px;
+
+  background: var(--input-bg);
+
+  color: var(--text-color);
+}
+
+.client-filter-box input {
+
+  flex: 1;
+}
+
+/* 검색버튼 */
+.client-filter-box button {
+
+  width: 120px;
+
+  border: none;
+
+  border-radius: 10px;
+
+  background: var(--button-dark);
+
+  color: white;
+
+  cursor: pointer;
+}
+
+/* 테이블 */
+.client-table-wrapper {
+
+  background: var(--card-bg);
+
+  border-radius: 16px;
+
+  overflow-x: auto;
+
+  border:
+    1px solid var(--border-color);
+}
+
+.client-table {
+
+  width: 100%;
+
+  border-collapse: collapse;
+}
+
+.client-table th {
+
+  background: var(--table-header);
+
+  height: 60px;
+
+  color: var(--text-color);
+
+  font-size: 15px;
+}
+
+.client-table td {
+
+  text-align: center;
+
+  height: 80px;
+
+  border-top:
+    1px solid var(--border-color);
+
+  color: var(--text-color);
+}
+
+/* 상태 */
+.status-button {
+
+  width: 90px;
+
+  height: 40px;
+
+  border: none;
+
+  border-radius: 25px;
+
+  color: white;
+
+  cursor: pointer;
+}
+
+.active {
+
+  background: var(--button-blue);
+}
+
+.stop {
+
+  background: var(--danger-color);
+}
+
+/* 관리 */
+.manage-button {
+
+  width: 80px;
+
+  height: 40px;
+
+  border: none;
+
+  border-radius: 10px;
+
+  background: var(--button-dark);
+
+  color: white;
+
+  cursor: pointer;
+}

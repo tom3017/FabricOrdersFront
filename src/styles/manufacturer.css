@@ -1,0 +1,158 @@
+.manufacturer-page {
+
+  width: 100%;
+}
+
+/* 카드 */
+.manufacturer-card {
+
+  background-color: white;
+
+  border-radius: 14px;
+
+  padding: 24px;
+
+  min-height: 700px;
+}
+
+/* 상단 */
+.manufacturer-header {
+
+  display: flex;
+
+  justify-content: space-between;
+
+  align-items: center;
+
+  margin-bottom: 30px;
+}
+
+/* 제목 */
+.manufacturer-title {
+
+  font-size: 30px;
+
+  font-weight: bold;
+
+  color: #26344d;
+}
+
+/* 검색 영역 */
+.manufacturer-search {
+
+  display: flex;
+
+  gap: 10px;
+}
+
+/* 검색 input */
+.manufacturer-search input {
+
+  width: 250px;
+
+  height: 42px;
+
+  border: 1px solid #ccc;
+
+  border-radius: 8px;
+
+  padding: 0 12px;
+
+  font-size: 15px;
+}
+
+/* 버튼 공통 */
+.blue-button {
+
+  height: 42px;
+
+  padding: 0 18px;
+
+  border: none;
+
+  border-radius: 8px;
+
+  background-color: #33c3ff;
+
+  color: white;
+
+  font-size: 15px;
+
+  font-weight: bold;
+
+  cursor: pointer;
+}
+
+/* 테이블 */
+.manufacturer-table {
+
+  width: 100%;
+
+  border-collapse: collapse;
+}
+
+/* 테이블 헤더 */
+.manufacturer-table th {
+
+  height: 50px;
+
+  background-color: #f7f9fc;
+
+  border-bottom: 2px solid #ddd;
+
+  color: #26344d;
+}
+
+/* 테이블 데이터 */
+.manufacturer-table td {
+
+  height: 60px;
+
+  text-align: center;
+
+  border-bottom: 1px solid #eee;
+}
+
+/* 삭제 버튼 */
+.red-button {
+
+  height: 36px;
+
+  padding: 0 14px;
+
+  border: none;
+
+  border-radius: 6px;
+
+  background-color: #ff5d5d;
+
+  color: white;
+
+  cursor: pointer;
+}
+
+/* 페이지네이션 */
+.pagination {
+
+  margin-top: 30px;
+
+  display: flex;
+
+  gap: 10px;
+}
+
+/* 페이지 버튼 */
+.page-button {
+
+  width: 40px;
+
+  height: 40px;
+
+  border: 1px solid #ccc;
+
+  background-color: white;
+
+  border-radius: 6px;
+
+  cursor: pointer;
+}

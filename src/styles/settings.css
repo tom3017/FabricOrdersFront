@@ -1,0 +1,173 @@
+/* 내설정 페이지 */
+
+.settings-page {
+
+  width: 100%;
+
+  display: flex;
+
+  gap: 24px;
+}
+
+/* 좌우 */
+.settings-left,
+.settings-right {
+
+  flex: 1;
+
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 24px;
+}
+
+/* 카드 */
+.settings-card {
+
+  background: white;
+
+  border-radius: 18px;
+
+  padding: 24px;
+
+  box-sizing: border-box;
+}
+
+/* 제목 */
+.settings-card h2 {
+
+  margin-top: 0;
+
+  margin-bottom: 24px;
+
+  color: #1f2a44;
+}
+
+/* 프로필 */
+.profile-section {
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 24px;
+}
+
+.profile-image {
+
+  width: 120px;
+
+  height: 120px;
+
+  border-radius: 12px;
+
+  background: #ddd;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+}
+
+/* form */
+.settings-form {
+
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 16px;
+}
+
+/* input */
+.settings-form input {
+
+  height: 50px;
+
+  border: 1px solid #ddd;
+
+  border-radius: 10px;
+
+  padding: 0 14px;
+
+  font-size: 16px;
+}
+
+/* 파란 버튼 */
+.blue-button {
+
+  height: 50px;
+
+  border: none;
+
+  border-radius: 10px;
+
+  background: #27c2ff;
+
+  color: white;
+
+  font-size: 16px;
+
+  cursor: pointer;
+}
+
+/* 빨간 버튼 */
+.red-button {
+
+  height: 50px;
+
+  border: none;
+
+  border-radius: 10px;
+
+  background: #ef5b5b;
+
+  color: white;
+
+  font-size: 16px;
+
+  cursor: pointer;
+}
+
+/* 토글 */
+.toggle-row {
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: space-between;
+
+  margin-bottom: 20px;
+}
+
+/* 토글 버튼 */
+.toggle-button {
+
+  width: 140px;
+
+  height: 50px;
+
+  border: none;
+
+  border-radius: 25px;
+
+  background: #1f2a44;
+
+  color: white;
+
+  cursor: pointer;
+}
+
+.profile-preview {
+
+  width: 100%;
+
+  height: 100%;
+
+  object-fit: cover;
+
+  border-radius: 50%;
+}

@@ -1,0 +1,147 @@
+/* 홈 전체 */
+.home-container {
+
+  min-height: 100vh;
+
+  background-color: #f4f7fb;
+
+  padding: 40px;
+
+  box-sizing: border-box;
+}
+
+/* 상단 헤더 */
+.top-bar {
+
+  display: flex;
+
+  flex-direction: column;
+
+  justify-content: center;
+
+  align-items: center;
+
+  margin-bottom: 50px;
+
+  text-align: center;
+}
+
+/* 메인 제목 */
+.page-title {
+  
+  font-size: 34px;
+
+  margin: 0;
+  align-items: center;
+  color: #222;
+}
+
+/* 설명 */
+.page-subtitle {
+
+  color: #777;
+
+  margin-top: 8px;
+}
+
+/* 카드 그리드 */
+.menu-grid {
+
+  display: grid;
+
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+
+  gap: 30px;
+}
+
+/* 공통 카드 */
+.menu-card {
+
+  height: 240px;
+
+  border-radius: 24px;
+
+  padding: 30px;
+
+  color: white;
+
+  display: flex;
+
+  flex-direction: column;
+
+  justify-content: center;
+
+  cursor: pointer;
+
+  transition: all 0.25s ease;
+
+  box-shadow:
+    0 10px 30px rgba(0,0,0,0.08);
+}
+
+/* hover */
+.menu-card:hover {
+
+  transform: translateY(-6px);
+}
+
+/* 파란 카드 */
+.blue-card {
+
+  background: linear-gradient(
+    135deg,
+    #5b8def,
+    #7a5cff
+  );
+}
+
+/* 초록 카드 */
+.green-card {
+
+  background: linear-gradient(
+    135deg,
+    #2bb673,
+    #00c9a7
+  );
+}
+
+/* 아이콘 */
+.menu-icon {
+
+  font-size: 52px;
+
+  margin-bottom: 20px;
+}
+
+/* 카드 제목 */
+.menu-card h2 {
+
+  font-size: 34px;
+
+  margin: 0;
+}
+
+/* 카드 설명 */
+.menu-card p {
+
+  margin-top: 10px;
+
+  font-size: 15px;
+
+  opacity: 0.9;
+}
+
+.menu-card{
+
+  cursor: pointer;
+
+  transition: 0.2s;
+}
+
+.menu-card:hover{
+
+  transform: translateY(-5px);
+
+  opacity: 0.9;
+}
+

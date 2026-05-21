@@ -1,0 +1,158 @@
+/* =========================
+   페이지 전체
+========================= */
+
+.fabric-page {
+
+  width: 100%;
+
+  min-width: 1400px;
+
+  box-sizing: border-box;
+}
+
+/* 제목 */
+.fabric-title {
+
+  font-size: 42px;
+
+  font-weight: bold;
+
+  margin-bottom: 30px;
+
+  color: #1f2a44;
+}
+
+/* 카드 */
+.fabric-card {
+
+  width: 100%;
+
+  background: white;
+
+  border-radius: 18px;
+
+  padding: 24px;
+
+  box-sizing: border-box;
+
+  margin-bottom: 24px;
+}
+
+/* 검색 영역 */
+.fabric-search-row {
+
+  display: flex;
+
+  gap: 16px;
+
+  margin-bottom: 24px;
+}
+
+.fabric-search-row select,
+.fabric-search-row input {
+
+  height: 52px;
+
+  border: 1px solid #ddd;
+
+  border-radius: 10px;
+
+  padding: 0 14px;
+
+  font-size: 16px;
+}
+
+/* 테이블 wrapper */
+.fabric-table-wrapper {
+
+  width: 100%;
+
+  overflow-x: auto;
+}
+
+/* 테이블 */
+.fabric-table {
+
+  width: 100%;
+
+  min-width: 1300px;
+
+  border-collapse: collapse;
+}
+
+/* 헤더 */
+.fabric-table th {
+
+  background: #f7f8fc;
+
+  height: 60px;
+
+  font-size: 18px;
+
+  color: #1f2a44;
+}
+
+/* 데이터 */
+.fabric-table td {
+
+  height: 80px;
+
+  text-align: center;
+
+  border-top: 1px solid #eee;
+
+  font-size: 17px;
+}
+
+/* 이미지 */
+.fabric-image {
+
+  width: 60px;
+
+  height: 60px;
+
+  border-radius: 8px;
+
+  background: #333;
+
+  margin: auto;
+}
+
+/* 버튼 */
+.fabric-button {
+
+  height: 48px;
+
+  padding: 0 24px;
+
+  border: none;
+
+  border-radius: 10px;
+
+  background: #1f2a44;
+
+  color: white;
+
+  font-size: 16px;
+
+  cursor: pointer;
+}
+
+/* 등록 버튼 */
+.fabric-add-button {
+
+  background: #27c2ff;
+}
+
+/* 하단 영역 */
+.fabric-bottom {
+
+  display: flex;
+
+  justify-content: space-between;
+
+  align-items: center;
+
+  margin-top: 24px;
+}

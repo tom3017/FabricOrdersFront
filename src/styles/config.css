@@ -1,0 +1,185 @@
+/* 환경 설정 페이지 */
+
+.config-page {
+
+  width: 100%;
+}
+
+/* 헤더 */
+.config-header {
+
+  margin-bottom: 24px;
+}
+
+.config-header h1 {
+
+  font-size: 32px;
+
+  color: var(--text-color);
+}
+
+/* 카드 */
+.config-card {
+
+  background: var(--card-bg);
+
+  border-radius: 18px;
+
+  padding: 32px;
+
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 32px;
+
+  border:
+    1px solid var(--border-color);
+}
+
+/* 섹션 */
+.config-section {
+
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 20px;
+}
+
+.config-section h2 {
+
+  color: var(--text-color);
+}
+
+/* 버튼 */
+.theme-buttons {
+
+  display: flex;
+
+  gap: 16px;
+}
+
+.theme-button {
+
+  width: 200px;
+
+  height: 60px;
+
+  border:
+    2px solid var(--border-color);
+
+  border-radius: 14px;
+
+  background: var(--card-bg);
+
+  color: var(--text-color);
+
+  font-size: 16px;
+
+  cursor: pointer;
+}
+
+.theme-button.active {
+
+  border-color: var(--button-blue);
+}
+
+/* row */
+.config-row {
+
+  display: flex;
+
+  justify-content: space-between;
+
+  align-items: center;
+}
+
+/* toggle */
+.toggle-button {
+
+  width: 100px;
+
+  height: 44px;
+
+  border: none;
+
+  border-radius: 22px;
+
+  color: white;
+
+  cursor: pointer;
+
+  font-weight: bold;
+}
+
+.toggle-button.on {
+
+  background: var(--button-blue);
+}
+
+.toggle-button.off {
+
+  background: #777;
+}
+
+/* select */
+.config-section select {
+
+  width: 300px;
+
+  height: 50px;
+
+  border:
+    1px solid var(--border-color);
+
+  border-radius: 10px;
+
+  padding: 0 14px;
+
+  font-size: 15px;
+
+  background: var(--input-bg);
+
+  color: var(--text-color);
+}
+
+/* 저장 버튼 */
+.save-button {
+
+  width: 180px;
+
+  height: 52px;
+
+  border: none;
+
+  border-radius: 12px;
+
+  background: var(--button-dark);
+
+  color: white;
+
+  font-size: 16px;
+
+  cursor: pointer;
+}
+
+/* 초기화 */
+.reset-button {
+
+  width: 180px;
+
+  height: 52px;
+
+  border: none;
+
+  border-radius: 12px;
+
+  background: var(--danger-color);
+
+  color: white;
+
+  font-size: 16px;
+
+  cursor: pointer;
+}

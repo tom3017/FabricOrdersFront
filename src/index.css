@@ -1,0 +1,100 @@
+/* =========================
+   기본
+========================= */
+
+* {
+
+  margin: 0;
+
+  padding: 0;
+
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+
+  width: 100%;
+
+  min-height: 100vh;
+}
+
+/* =========================
+   Light Theme
+========================= */
+
+:root {
+
+  --bg-color: #eef1f8;
+
+  --card-bg: #ffffff;
+
+  --sidebar-bg: #1f2a44;
+
+  --topbar-bg: #ffffff;
+
+  --text-color: #1f2a44;
+
+  --sub-text: #666;
+
+  --border-color: #dfe3eb;
+
+  --table-header: #f7f8fc;
+
+  --input-bg: #ffffff;
+
+  --button-dark: #1f2a44;
+
+  --button-blue: #27c2ff;
+
+  --danger-color: #ef5b5b;
+}
+
+/* =========================
+   Dark Theme
+========================= */
+
+body[data-theme="dark"] {
+
+  --bg-color: #111827;
+
+  --card-bg: #1f2937;
+
+  --sidebar-bg: #0f172a;
+
+  --topbar-bg: #1e293b;
+
+  --text-color: #f3f4f6;
+
+  --sub-text: #cbd5e1;
+
+  --border-color: #374151;
+
+  --table-header: #273244;
+
+  --input-bg: #374151;
+
+  --button-dark: #334155;
+
+  --button-blue: #0ea5e9;
+
+  --danger-color: #dc2626;
+}
+
+/* =========================
+   body
+========================= */
+
+body {
+
+  background: var(--bg-color);
+
+  color: var(--text-color);
+
+  font-family:
+    Pretendard,
+    sans-serif;
+
+  transition: 0.2s;
+}
