@@ -1,9 +1,4 @@
-import axios from "axios";
-
-// =========================
-// 서버 주소
-// =========================
-import {SERVER_URL} from "../config/serverConfig";
+import API from "./clientApi";
 
 // =========================
 // 인증번호 발송
@@ -16,14 +11,10 @@ export const sendResetCode = async (
 
 ) => {
 
-  const response = await axios.post(
-
-    `${SERVER_URL}/auth/find-password/send-code`,
-
+  const response = await API.post(
+    "/auth/find-password/send-code",
     {
-
       loginId,
-
       email
     }
   );
@@ -42,14 +33,10 @@ export const verifyResetCode = async (
 
 ) => {
 
-  const response = await axios.post(
-
-    `${SERVER_URL}/auth/find-password/verify`,
-
+  const response = await API.post(
+    "/auth/find-password/verify",
     {
-
       email,
-
       code
     }
   );
@@ -70,16 +57,11 @@ export const resetPassword = async (
 
 ) => {
 
-  const response = await axios.post(
-
-    `${SERVER_URL}/auth/find-password/reset`,
-
+  const response = await API.post(
+    "/auth/find-password/reset",
     {
-
       loginId,
-
       email,
-
       newPassword
     }
   );

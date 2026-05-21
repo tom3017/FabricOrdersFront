@@ -1,33 +1,4 @@
-import axios from "axios";
-
-import {SERVER_URL} from "../config/serverConfig";
-
-// =========================
-// axios 생성
-// =========================
-const API = axios.create({
-
-  baseURL: SERVER_URL
-});
-
-// =========================
-// JWT 자동 첨부
-// =========================
-API.interceptors.request.use((config) => {
-
-  const token = localStorage.getItem(
-    "token"
-  );
-
-  if(token){
-
-    config.headers.Authorization =
-
-      `Bearer ${token}`;
-  }
-
-  return config;
-});
+import API from "./clientApi";
 
 // =========================
 // 회사 설정 조회

@@ -1,16 +1,12 @@
-import axios from "axios";
-
-import { SERVER_URL } from "../config/serverConfig";
+import API from "./clientApi";
 
 // =========================
 // 아이디 중복확인
 // =========================
 export const checkDuplicateId = async (loginId) => {
 
-  const response = await axios.get(
-
-    `${SERVER_URL}/auth/check-id`,
-
+  const response = await API.get(
+    "/auth/check-id",
     {
       params: {
         loginId
@@ -26,10 +22,8 @@ export const checkDuplicateId = async (loginId) => {
 // =========================
 export const login = async (id, password) => {
 
-  const response = await axios.post(
-
-    `${SERVER_URL}/auth/login`,
-
+  const response = await API.post(
+    "/auth/login",
     {
       id,
       password
@@ -44,10 +38,8 @@ export const login = async (id, password) => {
 // =========================
 export const signup = async (data) => {
 
-  const response = await axios.post(
-
-    `${SERVER_URL}/auth/signup`,
-
+  const response = await API.post(
+    "/auth/signup",
     data
   );
 
@@ -59,10 +51,8 @@ export const signup = async (data) => {
 // =========================
 export const sendEmailCode = async (email) => {
 
-  const response = await axios.post(
-
-    `${SERVER_URL}/auth/email/send`,
-
+  const response = await API.post(
+    "/auth/email/send",
     {
       email
     }
@@ -76,10 +66,8 @@ export const sendEmailCode = async (email) => {
 // =========================
 export const verifyEmailCode = async (email, code) => {
 
-  const response = await axios.post(
-
-    `${SERVER_URL}/auth/email/verify`,
-
+  const response = await API.post(
+    "/auth/email/verify",
     {
       email,
       code
