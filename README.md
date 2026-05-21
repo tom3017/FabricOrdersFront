@@ -6,7 +6,6 @@ A React + Vite admin dashboard for fabric ordering and company settings manageme
 
 - React 19 + Vite 8 기반 SPA
 - 관리자 페이지, 설정 페이지, 제조사 관리 등 주요 비즈니스 기능 포함
-- `oh-my-claudecode` 플러그인 클론은 개발용으로 워크스페이스에 존재하지만, 실제 저장소에는 포함되지 않습니다.
 
 ## ⚡ 빠른 시작
 
