@@ -165,3 +165,149 @@
 
   cursor: pointer;
 }
+
+
+/* =========================
+   하단 영역
+========================= */
+.client-bottom {
+
+  margin-top: 24px;
+
+  display: flex;
+
+  justify-content: space-between;
+
+  align-items: center;
+}
+
+/* =========================
+   페이지네이션
+========================= */
+.pagination {
+
+  display: flex;
+
+  gap: 10px;
+}
+
+.pagination button {
+
+  width: 40px;
+
+  height: 40px;
+
+  border: 1px solid #ddd;
+
+  background: white;
+
+  border-radius: 8px;
+
+  cursor: pointer;
+
+  transition: 0.2s;
+}
+
+.pagination button:hover {
+
+  background: #f3f4f8;
+}
+
+/* =========================
+   현재 페이지 버튼
+========================= */
+.page-button.active {
+
+  background: #1f2a44;
+
+  color: white;
+
+  border: none;
+}
+
+/* =========================
+   우측 버튼 영역
+========================= */
+.bottom-buttons {
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 12px;
+}
+
+/* =========================
+   거래처 등록 입력영역
+========================= */
+.client-create {
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 10px;
+}
+
+.client-create input {
+
+  width: 220px;
+
+  height: 48px;
+
+  border: 1px solid #d9dce5;
+
+  border-radius: 10px;
+
+  padding: 0 14px;
+
+  font-size: 15px;
+}
+
+/* =========================
+   등록 버튼
+========================= */
+.blue-button {
+
+  width: 140px;
+
+  height: 48px;
+
+  border: none;
+
+  border-radius: 10px;
+
+  background: #27c2ff;
+
+  color: white;
+
+  cursor: pointer;
+
+  font-size: 15px;
+
+  font-weight: 600;
+}
+
+/* =========================
+   엑셀 버튼
+========================= */
+.dark-button {
+
+  width: 140px;
+
+  height: 48px;
+
+  border: none;
+
+  border-radius: 10px;
+
+  background: #1f2a44;
+
+  color: white;
+
+  cursor: pointer;
+
+  font-size: 15px;
+
+  font-weight: 600;
+}

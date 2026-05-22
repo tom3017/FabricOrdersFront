@@ -1,19 +1,17 @@
 import axios from "axios";
 import { SERVER_URL } from "../config/serverConfig";
 
-const API = axios.create({
-  baseURL: SERVER_URL,
-  headers: {
-    "Content-Type": "application/json"
-  }
-});
+export const getClients = async () => {
+  const response = await axios.get(`${SERVER_URL}/clients`);
+  return response.data;
+};
 
-API.interceptors.request.use((config) => {
-  const token = localStorage.getItem("token");
-  if (token && config.headers) {
-    config.headers.Authorization = `Bearer ${token}`;
-  }
-  return config;
-});
+export const createClient = async (name) => {
+  const response = await axios.post(`${SERVER_URL}/clients`, { name });
+  return response.data;
+};
 
-export default API;
+export const deleteClient = async (id) => {
+  const response = await axios.delete(`${SERVER_URL}/clients/${id}`);
+  return response.data;
+};

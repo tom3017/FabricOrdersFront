@@ -6,7 +6,6 @@ import SplashPage from "./pages/SplashPage";
 import LoginPage from "./pages/LoginPage";
 import HomePage from "./pages/HomePage";
 import SignupPage from "./pages/SignupPage";
-import ManufacturerPage from "./pages/adminpage/ManufacturerPage";
 import FabricPage from "./pages/adminpage/fabric/FabricPage";
 import SettingsPage from "./pages/adminpage/SettingsPage";
 import BasicPage from "./pages/adminpage/BasicPage";
@@ -16,7 +15,8 @@ import FabricPricePage from "./pages/adminpage/fabric/FabricPricePage";
 import ConfigPage from "./pages/adminpage/ConfigPage";
 import ClientPage from "./pages/adminpage/ClientPage";
 import FindPasswordPage from "./pages/FindPasswordPage";
-
+import FabricCreatePage from "./pages/adminpage/fabric/FabricCreatePage";
+import FabricEditPage from "./pages/adminpage/fabric/FabricEditPage";
 
 
 
@@ -52,11 +52,6 @@ function App() {
           element={<HomePage />}
         />
 
-        {/* 제조사 관리 */}
-        <Route
-          path="/manufacturers"
-          element={<ManufacturerPage />}
-        />
         {/* 원단 관리 */}
         <Route
           path="/fabrics"
@@ -108,11 +103,22 @@ function App() {
           element={<FindPasswordPage />}
         />
 
+        <Route
+
+          path="/fabric/create"
+
+          element={<FabricCreatePage />}
+
+        />
+
+
+        <Route
+          path="/fabric/edit/:id"
+          element={<FabricEditPage />}
+        />
+
+
       </Routes>
-
-
-
-
 
 
     </BrowserRouter>

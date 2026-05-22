@@ -156,3 +156,192 @@
 
   margin-top: 24px;
 }
+.fabric-register-card {
+
+  background: #f8fbff;
+
+  border: 1px solid #dfe8f5;
+
+  border-radius: 18px;
+
+  padding: 22px;
+
+  margin-bottom: 24px;
+}
+
+.fabric-register-header {
+
+  font-size: 18px;
+
+  font-weight: 700;
+
+  color: #1f2a44;
+
+  margin-bottom: 18px;
+}
+
+.fabric-form-grid {
+
+  display: grid;
+
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+
+  gap: 16px;
+
+  margin-bottom: 18px;
+}
+
+.fabric-form-grid input,
+.fabric-form-grid select {
+
+  height: 48px;
+
+  border: 1px solid #d7dde6;
+
+  border-radius: 12px;
+
+  padding: 0 14px;
+
+  font-size: 15px;
+
+  background: white;
+}
+
+.fabric-register-actions {
+
+  display: flex;
+
+  gap: 12px;
+
+  justify-content: flex-end;
+}
+
+.fabric-cancel-button {
+
+  background: #7c8ba4;
+}
+
+.fabric-small-button {
+
+  padding: 0 14px;
+
+  height: 42px;
+
+  font-size: 14px;
+}
+
+.page-button {
+
+  min-width: 44px;
+
+  height: 42px;
+
+  border: 1px solid #d7dde6;
+
+  border-radius: 10px;
+
+  background: white;
+
+  color: #1f2a44;
+
+  cursor: pointer;
+
+  font-weight: 600;
+}
+
+.page-button:hover:not(:disabled) {
+
+  background: #eef4ff;
+}
+
+.page-button.active {
+
+  background: #1f2a44;
+
+  color: white;
+
+  border-color: #1f2a44;
+}
+
+.page-button:disabled {
+
+  opacity: 0.45;
+
+  cursor: not-allowed;
+}
+
+/* =========================
+   관리 버튼 전체 영역
+========================= */
+.fabric-manage-buttons {
+
+  display: flex;
+
+  justify-content: center;
+
+  align-items: center;
+
+  gap: 8px;
+}
+
+/* =========================
+   관리 버튼
+========================= */
+.fabric-manage-button {
+
+  width: 72px;
+
+  height: 38px;
+
+  border: none;
+
+  border-radius: 8px;
+
+  background: #1f2a44;
+
+  color: white;
+
+  font-size: 14px;
+
+  font-weight: 600;
+
+  cursor: pointer;
+
+  transition: 0.2s;
+}
+
+.fabric-manage-button:hover {
+
+  opacity: 0.85;
+}
+
+/* =========================
+   삭제 버튼
+========================= */
+.fabric-delete-button {
+
+  width: 72px;
+
+  height: 38px;
+
+  border: none;
+
+  border-radius: 8px;
+
+  background: #e53935;
+
+  color: white;
+
+  font-size: 14px;
+
+  font-weight: 600;
+
+  cursor: pointer;
+
+  transition: 0.2s;
+}
+
+.fabric-delete-button:hover {
+
+  opacity: 0.85;
+}
