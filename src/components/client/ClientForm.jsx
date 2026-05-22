@@ -1,449 +1,416 @@
-import { useEffect, useMemo, useState } from "react";
+import { useState } from "react";
+import "../../styles/client-form.css";
 
-import { useNavigate } from "react-router-dom";
-
-import MainLayout
-from "../../components/layout/MainLayout";
-
-import "../../styles/client.css";
-
-// =========================
-// API import
-// =========================
-import {
-
-  getClients,
-  deleteClient
-
-} from "../../api/clientApi";
-
-function ClientPage() {
-
-  const navigate = useNavigate();
+function ClientForm({ mode = "create", initialData = null, onSave, onCancel }) {
 
   // =========================
-  // 검색어
+  // 폼 상태
   // =========================
-  const [searchName, setSearchName]
-    = useState("");
+  const [formData, setFormData] = useState({
+    group: "",
+    branchName: "",
+    loginId: "",
+    password: "",
+    representative: "",
+    businessName: "",
+    businessNumber: "",
+    address: "",
+    detailAddress: "",
+    phone: "",
+    fax: "",
+    email: "",
+    taxEmail: "",
+    basicRatePercent: "",
+    basicRateWon: "",
+    kakaoToggle: false,
+    receiveNumber: "",
+    remarks: "",
+    accountStatus: true,
+  });
 
   // =========================
-  // 페이지
+  // 입력 변경 핸들러
   // =========================
-  const [currentPage, setCurrentPage]
-    = useState(1);
-
-  const ITEMS_PER_PAGE = 5;
-
-  // =========================
-  // 거래처 목록
-  // =========================
-  const [clientList, setClientList]
-    = useState([]);
-
-  // =========================
-  // 거래처 조회
-  // =========================
-  const fetchClients = async () => {
-
-    try {
-
-      const data = await getClients();
-
-      setClientList(data);
-
-    } catch (error) {
-
-      console.log(error);
-
-      alert("거래처 조회 실패");
-    }
+  const handleChange = (e) => {
+    const { name, value, type, checked } = e.target;
+    setFormData((prev) => ({
+      ...prev,
+      [name]: type === "checkbox" ? checked : value,
+    }));
   };
 
   // =========================
-  // 최초 실행
+  // 폼 제출
   // =========================
-  useEffect(() => {
-
-    fetchClients();
-
-  }, []);
-
-  // =========================
-  // 거래처 삭제
-  // =========================
-  const handleDelete = async (id) => {
-
-    const check = window.confirm(
-      "삭제하시겠습니까?"
-    );
-
-    if (!check) {
-
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    
+    // 필수 항목 검증
+    if (!formData.branchName.trim()) {
+      alert("지점명을 입력하세요.");
+      return;
+    }
+    if (!formData.loginId.trim()) {
+      alert("아이디를 입력하세요.");
+      return;
+    }
+    if (!formData.password.trim() && mode === "create") {
+      alert("패스워드를 입력하세요.");
+      return;
+    }
+    if (!formData.businessName.trim()) {
+      alert("사업자상호를 입력하세요.");
+      return;
+    }
+    if (!formData.businessNumber.trim()) {
+      alert("사업자번호를 입력하세요.");
       return;
     }
 
-    try {
-
-      const result
-        = await deleteClient(id);
-
-      if (result === "SUCCESS") {
-
-        alert("삭제 완료");
-
-        fetchClients();
-      }
-
-    } catch (error) {
-
-      console.log(error);
-
-      alert("삭제 실패");
+    if (onSave) {
+      onSave(formData);
     }
   };
 
   // =========================
-  // 검색 필터
+  // 폼 취소
   // =========================
-  const filteredClients = useMemo(() => {
-
-    return clientList.filter((item) => {
-
-      return item.name
-        ?.toLowerCase()
-        .includes(searchName.toLowerCase());
-
-    });
-
-  }, [clientList, searchName]);
-
-  // =========================
-  // 총 페이지 수
-  // =========================
-  const totalPages = Math.max(
-
-    1,
-
-    Math.ceil(
-      filteredClients.length
-      / ITEMS_PER_PAGE
-    )
-  );
-
-  // =========================
-  // 현재 페이지 데이터
-  // =========================
-  const paginatedClients = filteredClients.slice(
-
-    (currentPage - 1)
-    * ITEMS_PER_PAGE,
-
-    currentPage
-    * ITEMS_PER_PAGE
-  );
-
-  // =========================
-  // 페이지 번호 생성
-  // =========================
-  const pageNumbers = () => {
-
-    if (totalPages <= 5) {
-
-      return Array.from(
-
-        { length: totalPages },
-
-        (_, i) => i + 1
-      );
+  const handleCancel = () => {
+    if (onCancel) {
+      onCancel();
     }
-
-    let startPage = Math.max(
-      1,
-      currentPage - 2
-    );
-
-    let endPage = startPage + 4;
-
-    if (endPage > totalPages) {
-
-      endPage = totalPages;
-
-      startPage = totalPages - 4;
-    }
-
-    return Array.from(
-
-      {
-        length:
-        endPage - startPage + 1
-      },
-
-      (_, i) =>
-        startPage + i
-    );
   };
-
-  // =========================
-  // 페이지 이동 함수
-  // =========================
-  const goToFirst = () =>
-    setCurrentPage(1);
-
-  const goToPrev = () =>
-    setCurrentPage((prev) =>
-      Math.max(prev - 1, 1)
-    );
-
-  const goToNext = () =>
-    setCurrentPage((prev) =>
-      Math.min(prev + 1, totalPages)
-    );
-
-  const goToLast = () =>
-    setCurrentPage(totalPages);
 
   return (
-
-    <MainLayout>
-
-      <div className="client-page">
-
-        {/* =========================
-            헤더
-        ========================= */}
-        <div className="client-header">
-
-          <h1>
-
-            거래처 관리
-
-          </h1>
-
-        </div>
-
-        {/* =========================
-            검색 영역
-        ========================= */}
-        <div className="client-filter-box">
-
-          <input
-
-            type="text"
-
-            placeholder="거래처명 검색"
-
-            value={searchName}
-
-            onChange={(e) => {
-
-              setSearchName(
-                e.target.value
-              );
-
-              setCurrentPage(1);
-            }}
-          />
-
-          <button>
-
-            검색
-
-          </button>
-
-        </div>
-
-        {/* =========================
-            테이블 영역
-        ========================= */}
-        <div className="client-table-wrapper">
-
-          <table className="client-table">
-
-            <thead>
-
-              <tr>
-
-                <th>번호</th>
-
-                <th>거래처명</th>
-
-                <th>관리</th>
-
-              </tr>
-
-            </thead>
-
-            <tbody>
-
-              {
-                paginatedClients.map(
-                  (item) => (
-
-                    <tr key={item.id}>
-
-                      <td>
-
-                        {item.id}
-
-                      </td>
-
-                      <td>
-
-                        {item.name}
-
-                      </td>
-
-                      <td>
-
-                        <button
-
-                          className="manage-button"
-
-                          onClick={() =>
-                            handleDelete(item.id)
-                          }
-                        >
-
-                          삭제
-
-                        </button>
-
-                      </td>
-
-                    </tr>
-                  ))
-              }
-
-            </tbody>
-
-          </table>
-
-        </div>
-
-        {/* =========================
-            하단 영역
-        ========================= */}
-        <div className="client-bottom">
-
-          {/* =========================
-              페이지네이션
-          ========================= */}
-          <div className="pagination">
-
-            <button
-
-              onClick={goToFirst}
-
-              disabled={currentPage === 1}
-            >
-
-              &lt;&lt;
-
-            </button>
-
-            <button
-
-              onClick={goToPrev}
-
-              disabled={currentPage === 1}
-            >
-
-              &lt;
-
-            </button>
-
-            {
-              pageNumbers().map(
-                (page) => (
-
-                  <button
-
-                    key={page}
-
-                    className={`page-button ${
-                      currentPage === page
-                        ? "active"
-                        : ""
-                    }`}
-
-                    onClick={() =>
-                      setCurrentPage(page)
-                    }
-                  >
-
-                    {page}
-
-                  </button>
-                ))
-            }
-
-            <button
-
-              onClick={goToNext}
-
-              disabled={
-                currentPage === totalPages
-              }
-            >
-
-              &gt;
-
-            </button>
-
-            <button
-
-              onClick={goToLast}
-
-              disabled={
-                currentPage === totalPages
-              }
-            >
-
-              &gt;&gt;
-
-            </button>
-
+    <form className="client-form" onSubmit={handleSubmit}>
+      {/* =========================
+          섹션 1: 기본 정보
+      ========================= */}
+      <div className="form-section">
+        <h2>기본 정보</h2>
+        
+        <div className="form-row">
+          <div className="form-group">
+            <label htmlFor="group">그룹 *</label>
+            <div className="group-input">
+              <select
+                id="group"
+                name="group"
+                value={formData.group}
+                onChange={handleChange}
+                className="form-input"
+              >
+                <option value="">선택하세요</option>
+                <option value="group1">그룹1</option>
+                <option value="group2">그룹2</option>
+                <option value="group3">그룹3</option>
+              </select>
+              <button type="button" className="btn-new">
+                신규
+              </button>
+            </div>
           </div>
 
-          {/* =========================
-              우측 버튼 영역
-          ========================= */}
-          <div className="bottom-buttons">
-
-            {/* =========================
-                거래처 등록 버튼
-            ========================= */}
-            <button
-
-              className="blue-button"
-
-              onClick={() =>
-                navigate("/client/create")
-              }
-            >
-
-              거래처 등록
-
-            </button>
-
-            {/* =========================
-                엑셀 다운로드
-            ========================= */}
-            <button className="dark-button">
-
-              엑셀 다운로드
-
-            </button>
-
+          <div className="form-group">
+            <label htmlFor="branchName">지점명 *</label>
+            <input
+              type="text"
+              id="branchName"
+              name="branchName"
+              value={formData.branchName}
+              onChange={handleChange}
+              className="form-input"
+              placeholder="지점명을 입력하세요"
+            />
           </div>
-
         </div>
 
+        <div className="form-row">
+          <div className="form-group">
+            <label htmlFor="loginId">아이디 *</label>
+            <div className="input-with-button">
+              <input
+                type="text"
+                id="loginId"
+                name="loginId"
+                value={formData.loginId}
+                onChange={handleChange}
+                className="form-input"
+                placeholder="로그인 아이디"
+              />
+              <button type="button" className="btn-check">
+                중복확인
+              </button>
+            </div>
+          </div>
+
+          <div className="form-group">
+            <label htmlFor="password">패스워드 *</label>
+            <input
+              type="password"
+              id="password"
+              name="password"
+              value={formData.password}
+              onChange={handleChange}
+              className="form-input"
+              placeholder="패스워드를 입력하세요"
+            />
+          </div>
+        </div>
+
+        <div className="form-row">
+          <div className="form-group">
+            <label htmlFor="representative">대표자명</label>
+            <input
+              type="text"
+              id="representative"
+              name="representative"
+              value={formData.representative}
+              onChange={handleChange}
+              className="form-input"
+              placeholder="대표자명"
+            />
+          </div>
+
+          <div className="form-group">
+            <label htmlFor="businessName">사업자상호 *</label>
+            <input
+              type="text"
+              id="businessName"
+              name="businessName"
+              value={formData.businessName}
+              onChange={handleChange}
+              className="form-input"
+              placeholder="사업자상호"
+            />
+          </div>
+        </div>
+
+        <div className="form-row">
+          <div className="form-group">
+            <label htmlFor="businessNumber">사업자번호 *</label>
+            <div className="input-with-button">
+              <input
+                type="text"
+                id="businessNumber"
+                name="businessNumber"
+                value={formData.businessNumber}
+                onChange={handleChange}
+                className="form-input"
+                placeholder="사업자번호"
+              />
+              <button type="button" className="btn-search">
+                조회
+              </button>
+            </div>
+          </div>
+        </div>
       </div>
 
-    </MainLayout>
+      {/* =========================
+          섹션 2: 연락처 및 주소
+      ========================= */}
+      <div className="form-section">
+        <h2>연락처 및 주소</h2>
+
+        <div className="form-row">
+          <div className="form-group full-width">
+            <label htmlFor="address">주소</label>
+            <input
+              type="text"
+              id="address"
+              name="address"
+              value={formData.address}
+              onChange={handleChange}
+              className="form-input"
+              placeholder="주소"
+            />
+          </div>
+        </div>
+
+        <div className="form-row">
+          <div className="form-group full-width">
+            <label htmlFor="detailAddress">상세주소</label>
+            <input
+              type="text"
+              id="detailAddress"
+              name="detailAddress"
+              value={formData.detailAddress}
+              onChange={handleChange}
+              className="form-input"
+              placeholder="상세주소"
+            />
+          </div>
+        </div>
+
+        <div className="form-row">
+          <div className="form-group">
+            <label htmlFor="phone">휴대폰</label>
+            <input
+              type="tel"
+              id="phone"
+              name="phone"
+              value={formData.phone}
+              onChange={handleChange}
+              className="form-input"
+              placeholder="휴대폰번호"
+            />
+          </div>
+
+          <div className="form-group">
+            <label htmlFor="fax">팩스번호</label>
+            <input
+              type="tel"
+              id="fax"
+              name="fax"
+              value={formData.fax}
+              onChange={handleChange}
+              className="form-input"
+              placeholder="팩스번호"
+            />
+          </div>
+        </div>
+
+        <div className="form-row">
+          <div className="form-group">
+            <label htmlFor="email">이메일주소</label>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              value={formData.email}
+              onChange={handleChange}
+              className="form-input"
+              placeholder="이메일주소"
+            />
+          </div>
+
+          <div className="form-group">
+            <label htmlFor="taxEmail">TAX이메일</label>
+            <input
+              type="email"
+              id="taxEmail"
+              name="taxEmail"
+              value={formData.taxEmail}
+              onChange={handleChange}
+              className="form-input"
+              placeholder="세금계산서 이메일"
+            />
+          </div>
+        </div>
+      </div>
+
+      {/* =========================
+          섹션 3: 거래 조건
+      ========================= */}
+      <div className="form-section">
+        <h2>거래 조건</h2>
+
+        <div className="form-row">
+          <div className="form-group">
+            <label htmlFor="basicRatePercent">기본요율 (%)</label>
+            <input
+              type="number"
+              id="basicRatePercent"
+              name="basicRatePercent"
+              value={formData.basicRatePercent}
+              onChange={handleChange}
+              className="form-input"
+              placeholder="0.00"
+              step="0.01"
+            />
+          </div>
+
+          <div className="form-group">
+            <label htmlFor="basicRateWon">기본요율 (₩)</label>
+            <input
+              type="number"
+              id="basicRateWon"
+              name="basicRateWon"
+              value={formData.basicRateWon}
+              onChange={handleChange}
+              className="form-input"
+              placeholder="0"
+            />
+          </div>
+        </div>
+
+        <div className="form-row">
+          <div className="form-group">
+            <label htmlFor="kakaoToggle">출고카톡</label>
+            <div className="toggle-wrapper">
+              <input
+                type="checkbox"
+                id="kakaoToggle"
+                name="kakaoToggle"
+                checked={formData.kakaoToggle}
+                onChange={handleChange}
+                className="toggle-input"
+              />
+              <label htmlFor="kakaoToggle" className="toggle-label"></label>
+            </div>
+          </div>
+
+          <div className="form-group">
+            <label htmlFor="receiveNumber">출고수신번호</label>
+            <input
+              type="tel"
+              id="receiveNumber"
+              name="receiveNumber"
+              value={formData.receiveNumber}
+              onChange={handleChange}
+              className="form-input"
+              placeholder="출고수신번호"
+            />
+          </div>
+        </div>
+
+        <div className="form-row">
+          <div className="form-group full-width">
+            <label htmlFor="remarks">비고</label>
+            <textarea
+              id="remarks"
+              name="remarks"
+              value={formData.remarks}
+              onChange={handleChange}
+              className="form-textarea"
+              placeholder="특이사항을 입력하세요"
+              rows="4"
+            ></textarea>
+          </div>
+        </div>
+
+        <div className="form-row">
+          <div className="form-group">
+            <label htmlFor="accountStatus">계정사용</label>
+            <div className="toggle-wrapper">
+              <input
+                type="checkbox"
+                id="accountStatus"
+                name="accountStatus"
+                checked={formData.accountStatus}
+                onChange={handleChange}
+                className="toggle-input"
+              />
+              <label htmlFor="accountStatus" className="toggle-label"></label>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* =========================
+          버튼 영역
+      ========================= */}
+      <div className="form-actions">
+        <button type="submit" className="btn-primary">
+          {mode === "create" ? "저장" : "수정"}
+        </button>
+        <button type="button" className="btn-cancel" onClick={handleCancel}>
+          취소
+        </button>
+      </div>
+    </form>
   );
 }
 
-export default ClientPage;
+export default ClientForm;

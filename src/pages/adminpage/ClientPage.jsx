@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useState } from "react";
-
+import { useNavigate } from "react-router-dom";
 import MainLayout
 from "../../components/layout/MainLayout";
 
@@ -17,6 +17,8 @@ import {
 } from "../../api/clientApi";
 
 function ClientPage() {
+
+  const navigate = useNavigate();
 
   // =========================
   // 검색어
@@ -454,33 +456,18 @@ function ClientPage() {
             {/* =========================
                 거래처 등록
             ========================= */}
-            <div className="client-create">
+            <button
 
-              <input
+              className="blue-button"
 
-                type="text"
+              onClick={() =>
+                navigate("/client/create")
+              }
+            >
 
-                placeholder="거래처명 입력"
+              거래처 등록
 
-                value={name}
-
-                onChange={(e) =>
-                  setName(e.target.value)
-                }
-              />
-
-              <button
-
-                className="blue-button"
-
-                onClick={handleCreate}
-              >
-
-                거래처 등록
-
-              </button>
-
-            </div>
+            </button>
 
             {/* =========================
                 엑셀 다운로드
