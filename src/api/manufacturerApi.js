@@ -1,17 +1,16 @@
-import axios from "axios";
-import { SERVER_URL } from "../config/serverConfig";
+import API from "./clientApi";
 
 export const getManufacturers = async () => {
-  const response = await axios.get(`${SERVER_URL}/manufacturers`);
+  const response = await API.get("/manufacturers");
   return response.data;
 };
 
 export const createManufacturer = async (name) => {
-  const response = await axios.post(`${SERVER_URL}/manufacturers`, { name });
+  const response = await API.post("/manufacturers", { name });
   return response.data;
 };
 
 export const deleteManufacturer = async (id) => {
-  const response = await axios.delete(`${SERVER_URL}/manufacturers/${id}`);
+  const response = await API.delete(`/manufacturers/${id}`);
   return response.data;
 };
