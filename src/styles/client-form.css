@@ -1,0 +1,120 @@
+.client-form-page {
+
+    padding: 40px;
+
+    background: #f3f3f3;
+
+    min-height: 100vh;
+}
+
+.client-form-card {
+
+    background: white;
+
+    padding: 40px;
+
+    border-radius: 12px;
+}
+
+.client-form-grid {
+
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 24px;
+}
+
+.form-row {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 10px;
+}
+
+.form-row input,
+.form-row select,
+.form-row textarea {
+
+    height: 45px;
+
+    padding: 10px;
+
+    border: 1px solid #ccc;
+}
+
+.form-row textarea {
+
+    height: 150px;
+}
+
+.inline-row {
+
+    display: flex;
+
+    gap: 10px;
+}
+
+.full-row {
+
+    grid-column: span 2;
+}
+
+.bottom-buttons {
+
+    margin-top: 40px;
+
+    display: flex;
+
+    gap: 16px;
+
+    justify-content: center;
+}
+
+.blue-button {
+
+    background: #2bbcff;
+
+    color: white;
+
+    border: none;
+
+    padding: 12px 40px;
+
+    cursor: pointer;
+}
+
+.dark-button {
+
+    background: #394867;
+
+    color: white;
+
+    border: none;
+
+    padding: 12px 40px;
+
+    cursor: pointer;
+}
+
+.toggle {
+
+    width: 120px;
+
+    height: 45px;
+
+    border-radius: 30px;
+
+    border: none;
+
+    background: #ccc;
+
+    color: white;
+}
+
+.toggle.active {
+
+    background: #394867;
+}

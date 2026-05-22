@@ -17,7 +17,7 @@ import ClientPage from "./pages/adminpage/ClientPage";
 import FindPasswordPage from "./pages/FindPasswordPage";
 import FabricCreatePage from "./pages/adminpage/fabric/FabricCreatePage";
 import FabricEditPage from "./pages/adminpage/fabric/FabricEditPage";
-
+import ClientFormPage from "./pages/adminpage/ClientFormPage";
 
 
 function App() {
@@ -115,6 +115,11 @@ function App() {
         <Route
           path="/fabric/edit/:id"
           element={<FabricEditPage />}
+        />
+
+        <Route
+          path="/client/create"
+          element={<ClientFormPage />}
         />
 
 
